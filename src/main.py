@@ -5,7 +5,7 @@ import httpx
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-from context import EVENT_CONTEXT   # <-- import here
+from context import EVENT_CONTEXT
 
 load_dotenv()
 
