@@ -1,26 +1,26 @@
-# 🚀 ITMeet Backend (FastAPI)
+# ITMeet Backend (FastAPI)
 
 A lightweight **FastAPI backend** powering the ITMeet website.
 It provides two core services:
 
 1. **Email Submission Proxy** → forwards data to a secured Google Apps Script endpoint
-2. **AI Chatbot** → uses Gemini API to answer FAQs about ITMeet
+2. **AI Chatbot** → uses GROQ API to answer FAQs about ITMeet
 
 This backend is simple, secure, and easy for contributors to install on any system.
 
-## 📌 Features
+## Features
 
-### ✅ 1. Google Apps Script Proxy
+### 1. Google Apps Script Proxy
 
 Used by the frontend for form submissions.
 The backend safely forwards user–submitted data to a private Apps Script URL, which then stores the data into a Google Spreadsheet.
 
-### ✅ 2. AI Chatbot Endpoint
+### 2. AI Chatbot Endpoint
 
 Powered by **Google Gemini**.
 This API answers frequently asked questions about ITMeet using a custom prompt context.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 * **FastAPI** (Python framework)
 * **Uvicorn** (ASGI server)
@@ -29,28 +29,27 @@ This API answers frequently asked questions about ITMeet using a custom prompt c
 * **dotenv** (secure environment variable handling)
 
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 Follow these steps to run the backend on your system.
 
-### 1️⃣ **Clone the repository**
+### **Clone the repository**
 
 git clone https://github.com/Adarsha16/itmeet_backend.git
 cd itmeet_backend
 
-### 2️⃣ **Create a virtual environment (REQUIRED)**
+### **Create a virtual environment (REQUIRED)**
 
-> ⚠️ Use **Python 3.12 or 3.13**
-> (Google Gemini does **NOT** support Python 3.14 yet)
 
-py -3.12 -m venv .venv
+
+python -m venv .venv
 .\.venv\Scripts\activate   # Windows
 # OR
 source .venv/bin/activate  # Mac/Linux
 
 ### 3️⃣ **Install dependencies**
 
-pip install -r requirements.txt
+uv sync
 
 ### 4️⃣ **Create your `.env` file**
 
@@ -60,10 +59,10 @@ cp .env.example .env
 
 Then fill in the variables:
 
-GEMINI_API_KEY=your_gemini_api_key_here
+GROQ_API_KEY=your_groq_api_key_here
 APPS_SCRIPT_URL=https://script.google.com/macros/s/XXXXXX/exec
 
-## ▶️ Running the Server
+## Running the Server
 
 Start FastAPI locally:
 cd src
@@ -75,7 +74,7 @@ http://127.0.0.1:8000
 Swagger Docs:
 http://127.0.0.1:8000/docs
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### 🔹 POST `/chat`
 
@@ -91,9 +90,9 @@ Send a user message to the Gemini-powered chatbot.
 {
   "reply": "IT Meet 2025 will be held at Kathmandu University..."
 }
-## 🔐 Environment Variables
+## Environment Variables
 
 | Variable                  | Description                          |
 | --------------------------| ------------------------------------ |
-| `GEMINI_API_KEY`          | Gemini API key from Google AI Studio |
+| `GROQ_API_KEY`          | Groq API key |
 | `APPS_SCRIPT_URL`         | Secured Google Apps Script URL       |
