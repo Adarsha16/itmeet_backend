@@ -1,6 +1,6 @@
 # ITMeet Backend (FastAPI)
 
-A lightweight **FastAPI backend** powering the ITMeet website.
+A lightweight **FastAPI backed** powering the ITMeet website.
 It provides two core services:
 
 1. **Email Submission Proxy** → forwards data to a secured Google Apps Script endpoint
@@ -17,16 +17,17 @@ The backend safely forwards user–submitted data to a private Apps Script URL, 
 
 ### 2. AI Chatbot Endpoint
 
-Powered by **Google Gemini**.
+Powered by **GROQ**.
 This API answers frequently asked questions about ITMeet using a custom prompt context.
 
 ## Tech Stack
 
 * **FastAPI** (Python framework)
 * **Uvicorn** (ASGI server)
-* **Google Gemini API** (google-generativeai)
+* **GROQ API** (google-generativeai)
 * **Google Apps Script** (for spreadsheet storage)
 * **dotenv** (secure environment variable handling)
+* **astral-uv** (Package manager)
 
 
 ## Installation & Setup
@@ -47,11 +48,11 @@ python -m venv .venv
 # OR
 source .venv/bin/activate  # Mac/Linux
 
-### 3️⃣ **Install dependencies**
+### **Install dependencies**
 
 uv sync
 
-### 4️⃣ **Create your `.env` file**
+### **Create your `.env` file**
 
 Copy:
 
@@ -76,9 +77,9 @@ http://127.0.0.1:8000/docs
 
 ## API Endpoints
 
-### 🔹 POST `/chat`
+### POST `/chat`
 
-Send a user message to the Gemini-powered chatbot.
+Send a user message to the groq-powered chatbot.
 
 #### Request
 {
